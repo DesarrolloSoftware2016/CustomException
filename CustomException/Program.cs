@@ -16,11 +16,27 @@ namespace CustomException
             try
             {
                 // Lanzar excepción
-                miVehiculo.Acelerar(-15);
+                miVehiculo.Acelerar(1500);
+            }
+            catch (VehiculoMuertoException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ErrorTimeStamp);
+                Console.WriteLine(e.CausaError);
             }
             catch (ArgumentOutOfRangeException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            // Una captura de otro tipo de excepción
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            // Una captura genérica
+            catch
+            {
+                Console.WriteLine("Algo malo sucedió al acelerar...");
             }
             finally
             {

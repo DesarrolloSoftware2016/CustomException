@@ -53,7 +53,14 @@ namespace CustomException
                 {
                     VelocidadActual = 0;
                     vehiculoMuerto = true;
+
+                    // Utilizar la palabra reservada "throw"para lanzar una excepción
+                    VehiculoMuertoException ex = new VehiculoMuertoException(string.Format("¡{0} se ha sobrecalentado!", Apodo), "No dejaste de acelerar", DateTime.Now);
+                    ex.HelpLink = "http://desarrollodesoftware.edu";
+                    throw ex;
                 }
+                else
+                    Console.WriteLine("=> Velocidad Actual = {0}", VelocidadActual);
             }
         }
     }
